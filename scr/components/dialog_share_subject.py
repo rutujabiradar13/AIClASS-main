@@ -6,7 +6,7 @@ import io
 @st.dialog('Share Class Link', width="small")
 def share_subject_dialog(subject_name, subject_code):
 
-    app_domain = "AICLASS-main.streamlit.app"
+    app_domain = "aiclass-main.streamlit.app"
     join_url =f"{app_domain}/?join-code={subject_code}"
  
     qr = segno.make(join_url)
