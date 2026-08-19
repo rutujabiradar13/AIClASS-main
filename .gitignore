@@ -9,4 +9,4 @@ venv/
 nenv/
 
 .streamlit/
-dist/
+dist/git rm -r --cached nenv

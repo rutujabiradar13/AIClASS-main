@@ -104,6 +104,7 @@ def student_dashboard():
                 "Unenroll from this course",
                 type="tertiary",
                 width="stretch",
+                key=f"unenroll_{subject_id}"
             ):
                 unenroll_student_to_subject(student_id, subject_id)
                 st.toast(f"Unenrolled from {subject_name} successfully")
@@ -118,7 +119,10 @@ def student_dashboard():
                     ("Total", stats["total"]),
                     ("Attended", stats["attended"]),
                 ),
-                footer_callback=unenroll_button,
+                footer_callback=lambda: unenroll_button(
+                    subject_id,
+                    sub["name"],
+                ),
             )
 
 

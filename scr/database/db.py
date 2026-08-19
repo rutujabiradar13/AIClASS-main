@@ -91,10 +91,8 @@ def enroll_student_to_subject(student_id, subject_id):
 
 
 def unenroll_student_to_subject(student_id, subject_id):
-    data = {'student_id': student_id, 'subject_id': subject_id}
-    response = supabase.table('student_subject').delete(data).eq('student_id', student_id).eq('subject_id', subject_id).execute()
-    return response.data
-
+    response = supabase.table("student_subject").delete().eq("student_id", student_id).eq("subject_id", subject_id).execute().data
+    return response
 
 def get_students_subject(student_id):
     response = supabase.table('student_subject').select('*,subjects(*)').eq('student_id', student_id).execute()
